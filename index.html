@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hirakala Build and Consult</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    line-height:1.6;
+    color:#333;
+}
+
+header{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.hero{
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1503387762-592deb58ef4d');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+}
+
+section{
+    padding:60px 10%;
+}
+
+h2{
+    color:#0d47a1;
+    margin-bottom:20px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#f5f5f5;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    transition:0.3s;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input, textarea{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    background:#0d47a1;
+    color:white;
+    border:none;
+    padding:12px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+button:hover{
+    background:#1565c0;
+}
+
+footer{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.social a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        margin-top:10px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">HIRAKALA BUILD & CONSULT</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">Who We Are</a></li>
+<li><a href="#services">What We Do</a></li>
+<li><a href="#technical">Technical Terms</a></li>
+<li><a href="#knowledge">Field Knowledge</a></li>
+<li><a href="#inquiry">Inquiries</a></li>
+<li><a href="#join">Join Us</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Building Excellence, Engineering the Future</h1>
+<p>Your Trusted Partner in Construction, Design and Consultancy Services</p>
+</section>
+
+<section id="about">
+<h2>Who We Are</h2>
+
+<p>
+Hirakala Build and Consult is a multidisciplinary engineering and
+consultancy company providing professional services in civil engineering,
+architecture, project management, surveying, estimation, BIM,
+construction supervision and infrastructure development.
+</p>
+
+<p>
+We strive to deliver innovative, sustainable and cost-effective solutions
+for residential, commercial and infrastructure projects.
+</p>
+</section>
+
+<section id="services">
+<h2>What We Do</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Architectural Design</h3>
+<p>Modern and sustainable building design solutions.</p>
+</div>
+
+<div class="card">
+<h3>Structural Design</h3>
+<p>Safe and economical structural analysis and design.</p>
+</div>
+
+<div class="card">
+<h3>Building Information Modeling (BIM)</h3>
+<p>3D modeling, coordination and clash detection services.</p>
+</div>
+
+<div class="card">
+<h3>Quantity Surveying</h3>
+<p>BOQ preparation, cost estimation and project budgeting.</p>
+</div>
+
+<div class="card">
+<h3>Construction Supervision</h3>
+<p>Quality control, site monitoring and project management.</p>
+</div>
+
+<div class="card">
+<h3>Surveying Services</h3>
+<p>Topographic, road alignment and land surveying solutions.</p>
+</div>
+
+<div class="card">
+<h3>Road and Infrastructure</h3>
+<p>Planning and design of roads, bridges and utilities.</p>
+</div>
+
+<div class="card">
+<h3>Technical Consultancy</h3>
+<p>Engineering guidance and project consultancy services.</p>
+</div>
+
+</div>
+</section>
+
+<section id="technical">
+<h2>Technical Terms</h2>
+
+<ul>
+<li>BOQ – Bill of Quantities</li>
+<li>DPR – Detailed Project Report</li>
+<li>BIM – Building Information Modeling</li>
+<li>RCC – Reinforced Cement Concrete</li>
+<li>MEP – Mechanical, Electrical & Plumbing</li>
+<li>QA/QC – Quality Assurance & Quality Control</li>
+<li>CPM – Critical Path Method</li>
+<li>GIS – Geographic Information System</li>
+<li>CAD – Computer Aided Design</li>
+<li>ETABS – Structural Analysis Software</li>
+</ul>
+
+</section>
+
+<section id="knowledge">
+<h2>Field Knowledge</h2>
+
+<p>
+Explore articles and technical resources related to:
+</p>
+
+<ul>
+<li>Building Construction Techniques</li>
+<li>Earthquake Resistant Design</li>
+<li>Construction Materials</li>
+<li>Project Planning and Scheduling</li>
+<li>Road Engineering</li>
+<li>Water Supply Systems</li>
+<li>Hydropower Engineering</li>
+<li>BIM and Digital Construction</li>
+<li>Surveying Technologies</li>
+<li>Smart Infrastructure</li>
+</ul>
+
+</section>
+
+<section id="inquiry">
+<h2>Inquiries</h2>
+
+<form id="inquiryForm">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Your Email" required>
+
+<textarea rows="5" placeholder="Write your inquiry here..." required></textarea>
+
+<button type="submit">Submit Inquiry</button>
+
+</form>
+
+</section>
+
+<section id="join">
+<h2>Join With Us</h2>
+
+<p>
+We are always looking for talented:
+</p>
+
+<ul>
+<li>Civil Engineers</li>
+<li>Architects</li>
+<li>Survey Engineers</li>
+<li>BIM Modelers</li>
+<li>Quantity Surveyors</li>
+<li>Project Managers</li>
+<li>Freelancers & Technical Experts</li>
+</ul>
+
+<p>
+Send your CV to:
+<strong>hirakalabuildandconsult@gmail.com</strong>
+</p>
+
+</section>
+
+<section id="contact">
+<h2>Contact Us</h2>
+
+<p><strong>Company:</strong> Hirakala Build and Consult</p>
+<p><strong>Email:</strong> hirakalabuildandconsult@gmail.com</p>
+<p><strong>Phone:</strong> +977 9851206290</p>
+
+<h3>Follow Us</h3>
+
+<div class="social">
+<a href="#">Facebook</a>
+<a href="#">Instagram</a>
+<a href="#">LinkedIn</a>
+<a href="#">YouTube</a>
+<a href="#">TikTok</a>
+</div>
+
+</section>
+
+<footer>
+
+<h3>Hirakala Build and Consult</h3>
+
+<p>
+Engineering | Design | Construction | Consultancy
+</p>
+
+<p>
+© 2026 Hirakala Build and Consult. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+document.getElementById("inquiryForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+alert(
+"Thank you for contacting Hirakala Build and Consult. We will respond shortly."
+);
+
+this.reset();
+
+});
+</script>
+
+</body>
+</html>
+```
