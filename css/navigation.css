@@ -1,0 +1,38 @@
+/* Keep every page option visible on smaller screens. */
+@media (max-width: 900px) {
+  .nav {
+    height: auto;
+    min-height: 67px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+  }
+
+  .nav-links,
+  .nav-links.open {
+    display: flex;
+    position: static;
+    flex: 1 0 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 12px;
+    padding: 10px 0 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .nav-links a,
+  .nav-links .btn {
+    display: inline-flex;
+    padding: 4px 0;
+    font-size: .78rem;
+  }
+
+  .nav-links .btn {
+    padding: 7px 10px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}

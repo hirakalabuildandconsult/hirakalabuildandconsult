@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hirakalabuildandconsult.com.np/sitemap.xml

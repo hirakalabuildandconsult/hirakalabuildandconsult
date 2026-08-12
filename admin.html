@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin | Hirakala Build & Consult</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navigation.css">
+<link rel="stylesheet" href="css/admin.css">
+<script src="js/firebase-config.js"></script><script defer src="js/main.js"></script>
+<script type="module" src="js/admin.js"></script>
+</head>
+<body>
+<div data-header></div>
+<main>
+  <section class="page-hero blueprint"><div class="container"><p class="eyebrow">Private area</p><h1>Site admin.</h1><p>Manage projects, gallery photos, blog posts, MCQ questions and progress updates.</p></div></section>
+
+  <section class="section admin-shell"><div class="container">
+
+    <div id="configWarning" class="admin-status error" style="display:none"></div>
+
+    <div id="loginView" class="admin-login form-card" style="display:none">
+      <h2 style="margin-top:0">Admin sign in</h2>
+      <p style="color:var(--muted);font-size:.9rem">Sign in with the admin account you created in Firebase Authentication.</p>
+      <div id="loginStatus" class="admin-status"></div>
+      <form id="loginForm">
+        <label>Email<input type="email" id="loginEmail" required autocomplete="username"></label>
+        <label style="margin-top:14px">Password<input type="password" id="loginPassword" required autocomplete="current-password"></label>
+        <button class="btn" type="submit" style="margin-top:18px;width:100%">Sign in</button>
+      </form>
+    </div>
+
+    <div id="dashboardView" style="display:none">
+      <div class="admin-topbar">
+        <div><h2 style="margin:0">Welcome back</h2><p id="whoami" style="margin:4px 0 0;color:var(--muted);font-size:.85rem"></p></div>
+        <button class="btn btn-outline" id="signOutBtn">Sign out</button>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="projects">Projects</button>
+        <button class="admin-tab" data-tab="gallery">Gallery</button>
+        <button class="admin-tab" data-tab="blogs">Blog</button>
+        <button class="admin-tab" data-tab="mcq">MCQ Questions</button>
+        <button class="admin-tab" data-tab="progress">Progress Updates</button>
+      </div>
+
+      <div id="globalStatus" class="admin-status"></div>
+
+      <!-- PROJECTS -->
+      <section class="admin-panel active" data-panel="projects">
+        <form class="form-card" id="projectForm">
+          <input type="hidden" id="projectEditId">
+          <div class="form-grid">
+            <label>Title<input id="projectTitle" required></label>
+            <label>Location<input id="projectLocation" required></label>
+            <label>Category<select id="projectCategory"><option>Residential</option><option>Commercial</option><option>Roads</option><option>BIM</option></select></label>
+            <label>Status / Year<input id="projectStatus" placeholder="Completed or 2026" required></label>
+            <label class="full">Description<textarea id="projectDescription" required></textarea></label>
+            <label class="full">Photo<input type="file" id="projectPhoto" accept="image/*"></label>
+            <label class="full">External link (optional)<input id="projectLink" placeholder="https://..."></label>
+          </div>
+          <div class="admin-form-actions">
+            <button class="btn" type="submit" id="projectSubmitBtn">Add project</button>
+            <button class="btn btn-outline" type="button" id="projectCancelBtn" style="display:none">Cancel edit</button>
+          </div>
+        </form>
+        <div class="admin-list" id="projectAdminList"></div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="admin-panel" data-panel="gallery">
+        <form class="form-card" id="galleryForm">
+          <input type="hidden" id="galleryEditId">
+          <div class="form-grid">
+            <label class="full">Photo<input type="file" id="galleryPhoto" accept="image/*"></label>
+            <label>Caption<input id="galleryCaption" required></label>
+            <label>Category<select id="galleryCategory"><option>Construction</option><option>Surveying</option><option>Buildings</option><option>Site Visits</option></select></label>
+          </div>
+          <div class="admin-form-actions">
+            <button class="btn" type="submit" id="gallerySubmitBtn">Add photo</button>
+            <button class="btn btn-outline" type="button" id="galleryCancelBtn" style="display:none">Cancel edit</button>
+          </div>
+        </form>
+        <div class="admin-list" id="galleryAdminList"></div>
+      </section>
+
+      <!-- BLOG -->
+      <section class="admin-panel" data-panel="blogs">
+        <form class="form-card" id="blogForm">
+          <input type="hidden" id="blogEditId">
+          <div class="form-grid">
+            <label>Title<input id="blogTitle" required></label>
+            <label>Category<input id="blogCategory" placeholder="Structural Engineering" required></label>
+            <label class="full">Excerpt<textarea id="blogExcerpt" required></textarea></label>
+            <label class="full">Photo<input type="file" id="blogPhoto" accept="image/*"></label>
+            <label>Date label<input id="blogDateLabel" placeholder="12 Aug 2026"></label>
+          </div>
+          <div class="admin-form-actions">
+            <button class="btn" type="submit" id="blogSubmitBtn">Add post</button>
+            <button class="btn btn-outline" type="button" id="blogCancelBtn" style="display:none">Cancel edit</button>
+          </div>
+        </form>
+        <div class="admin-list" id="blogAdminList"></div>
+      </section>
+
+      <!-- MCQ -->
+      <section class="admin-panel" data-panel="mcq">
+        <form class="form-card" id="mcqForm">
+          <input type="hidden" id="mcqEditId">
+          <label>Question<textarea id="mcqQuestion" required></textarea></label>
+          <div class="correct-options" style="margin-top:14px">
+            <label><input type="radio" name="mcqCorrect" value="0" checked>A. <input type="text" id="mcqOptionA" required></label>
+            <label><input type="radio" name="mcqCorrect" value="1">B. <input type="text" id="mcqOptionB" required></label>
+            <label><input type="radio" name="mcqCorrect" value="2">C. <input type="text" id="mcqOptionC" required></label>
+            <label><input type="radio" name="mcqCorrect" value="3">D. <input type="text" id="mcqOptionD" required></label>
+          </div>
+          <p style="font-size:.78rem;color:var(--muted);margin:8px 0 0">Select the radio button next to the correct answer.</p>
+          <label style="margin-top:14px">Explanation (shown after answering)<textarea id="mcqExplanation"></textarea></label>
+          <div class="admin-form-actions">
+            <button class="btn" type="submit" id="mcqSubmitBtn">Add question</button>
+            <button class="btn btn-outline" type="button" id="mcqCancelBtn" style="display:none">Cancel edit</button>
+          </div>
+        </form>
+        <div class="admin-list" id="mcqAdminList"></div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="admin-panel" data-panel="progress">
+        <form class="form-card" id="progressForm">
+          <input type="hidden" id="progressEditId">
+          <div class="form-grid">
+            <label>Date label<input id="progressDate" placeholder="12 August 2026" required></label>
+            <label>Location<input id="progressLocation" placeholder="Butwal, Nepal" required></label>
+            <label class="full">Title<input id="progressTitle" required></label>
+            <label class="full">Description<textarea id="progressDescription" required></textarea></label>
+            <label>Percent complete<input type="number" id="progressPercent" min="0" max="100" required></label>
+            <label>Status<select id="progressStatus"><option>On schedule</option><option>Approved</option><option>Delayed</option><option>Completed</option></select></label>
+            <label>Category<input id="progressCategory" placeholder="RCC Works"></label>
+          </div>
+          <div class="admin-form-actions">
+            <button class="btn" type="submit" id="progressSubmitBtn">Add update</button>
+            <button class="btn btn-outline" type="button" id="progressCancelBtn" style="display:none">Cancel edit</button>
+          </div>
+        </form>
+        <div class="admin-list" id="progressAdminList"></div>
+      </section>
+
+    </div>
+  </div></section>
+</main>
+<div data-footer></div>
+</body>
+</html>
