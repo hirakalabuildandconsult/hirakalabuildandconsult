@@ -16,6 +16,6 @@ if (enquiryForm) {
     }
 
     const subject = `Website enquiry from ${name}`;
-    window.location.href = `mailto:hirakalabuildandconult@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquiry)}`;
+    window.location.href = `mailto:hirakalabuildandconsult@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquiry)}`;
   });
 }
