@@ -1,4 +1,0 @@
-.option.correct { border-color: #23844b; background: #eaf8ef; color: #165c32; }
-.option.incorrect { border-color: #c63838; background: #fff0f0; color: #962d2d; }
-.answer-mark { float: right; font-size: 1.1rem; font-weight: 900; }
-.answer-feedback { margin: 18px 0 0; padding: 13px 15px; border-left: 4px solid #23844b; background: #eaf8ef; color: #165c32; font-size: .92rem; }
